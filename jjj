@@ -363,3 +363,107 @@ public class SwimMeet {
         }
     }
 }
+
+// 22. Java Static Keyword
+public class SwimClub {
+    static String clubName = "Ocean Stars";
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to " + clubName + " club!");
+    }
+}
+
+// 23. Java Final Keyword
+public class FinalSwimmer {
+    final String name = "Zhangir";
+
+    public void displayName() {
+        System.out.println("Swimmer's name is " + name);
+    }
+
+    public static void main(String[] args) {
+        FinalSwimmer fs = new FinalSwimmer();
+        fs.displayName();
+    }
+}
+
+// 24. Java Try-Catch Exception Handling
+import java.util.Scanner;
+
+public class SwimTimeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter swim time in seconds: ");
+            double time = scanner.nextDouble();
+            System.out.println("Time recorded: " + time + "s");
+        } catch (Exception e) {
+            System.out.println("Invalid input! Please enter a number.");
+        }
+    }
+}
+
+// 25. Java File I/O (Writing and Reading Swimmer Data)
+import java.io.*;
+
+public class SwimDataFile {
+    public static void main(String[] args) {
+        String[] swimmers = {"Temirlan", "Olzhas", "Bogdan"};
+
+        try {
+            FileWriter writer = new FileWriter("swimmers.txt");
+            for (String s : swimmers) {
+                writer.write(s + "\n");
+            }
+            writer.close();
+
+            BufferedReader reader = new BufferedReader(new FileReader("swimmers.txt"));
+            String line;
+            System.out.println("Swimmer list:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("File error!");
+        }
+    }
+}
+
+// 26. Java Method Overloading
+public class SwimOverload {
+
+    void register(String name) {
+        System.out.println(name + " has registered.");
+    }
+
+    void register(String name, double time) {
+        System.out.println(name + " has registered with time: " + time + "s.");
+    }
+
+    public static void main(String[] args) {
+        SwimOverload reg = new SwimOverload();
+        reg.register("Zhangir");
+        reg.register("Temirlan", 56.3);
+    }
+}
+
+// 27. Java Constructors
+public class Swimmer {
+    String name;
+    double time;
+
+    public Swimmer(String name, double time) {
+        this.name = name;
+        this.time = time;
+    }
+
+    public void info() {
+        System.out.println(name + " completed the swim in " + time + " seconds.");
+    }
+
+    public static void main(String[] args) {
+        Swimmer swimmer = new Swimmer("Olzhas", 52.4);
+        swimmer.info();
+    }
+}
